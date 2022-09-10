@@ -26,3 +26,17 @@ void fusion(int *t,int deb1,int fin1,int fin2)
  }
  free(table1);
 }
+
+void tri_fusion_bis(int *t,int deb,int fin)
+{
+if (deb!=fin){
+ int milieu=(fin+deb)/2;
+ tri_fusion_bis(t,deb,milieu);
+ tri_fusion_bis(t,milieu+1,fin);
+ fusion(t,deb,milieu,fin);
+ }
+}
+void tri_fusion(int *t,int n)
+{
+ if (n>0) tri_fusion_bis(t,0,n-1);
+}
